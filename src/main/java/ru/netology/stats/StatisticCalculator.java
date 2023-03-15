@@ -12,12 +12,8 @@ public class StatisticCalculator {
     }
 
     public long averageAllSales(long[] sales) {
-        long summSales = 0;
-        long averageSales = 0;
-        for (long s : sales) {
-            summSales = summSales + s;
-            averageSales = summSales / sales.length;
-        }
+        long summSales = summAllSales(sales);
+        long averageSales = summSales / sales.length;
         return averageSales;
     }
 
@@ -42,13 +38,10 @@ public class StatisticCalculator {
     }
 
     public int quantityMonthLowerAverageSales(long[] sales) {
-        long summSales = 0;
-        long averageSales = 0;
+
         int salesLowerAverageSales = 0;
-        for (long s : sales) {
-            summSales = summSales + s;
-            averageSales = summSales / sales.length;
-        }
+        long averageSales = averageAllSales(sales);
+
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] < averageSales) {
                 salesLowerAverageSales = salesLowerAverageSales + 1;
@@ -58,13 +51,10 @@ public class StatisticCalculator {
     }
 
     public int quantityMonthHigherAverageSales(long[] sales) {
-        long summSales = 0;
-        long averageSales = 0;
+
         int salesHigherAverageSales = 0;
-        for (long s : sales) {
-            summSales = summSales + s;
-            averageSales = summSales / sales.length;
-        }
+        long averageSales = averageAllSales(sales);
+
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > averageSales) {
                 salesHigherAverageSales = salesHigherAverageSales + 1;
